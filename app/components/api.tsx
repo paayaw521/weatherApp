@@ -5,59 +5,55 @@ import { useEffect, useRef, useState } from "react";
 const base_api = "https://api.openweathermap.org/data/2.5/forecast?q=accra&appid=8d65b434e0cdc0da95db65116d086dc0&units=metric";
 
 export const getWeatherIcon = (weatherMain: string) => {
-    switch (weatherMain) {
-        case "Clear":
-            return "/icons/sunny.svg";
-        case "Clear Cloudy":
-            return "/icons/clear-cloudy.svg";
-        case "Mostly Cloudy":
-            return "/icons/mostly-cloudy.svg";
-        case "Clouds":
+    switch (weatherMain.toLowerCase()) {
+        case "cloudy":
             return "/icons/cloudy.svg";
-        case "Rain":
+        case "rain":
             return "/icons/rain.svg";
-        case "Partly Cloudy":
-            return "/icons/partly-cloudy.svg";
-        case "Thunderstorm":
+        case "light rain":
+        case "drizzle":
+        case "moderate rain":
+        case "shower rain":
+            return "/icons/showers.svg";
+        case "clear":
+            return "/icons/sunny.svg";
+        case "thunderstorm":
             return "/icons/thunderstorm.svg";
-        case "Snow":
+        case "snow":
             return "/icons/snow.svg";
-        case "Drizzle":
-            return "/icons/drizzle.svg";
-        case "Mist":
-            return "/icons/mist.svg";
-        case "Fog":
-            return "/icons/fog.svg";
-        case "Windy":
-            return "/icons/windy.svg";
+        case "mist":
+        case "fog":
+            return "/icons/foggy.svg";
+        case "scattered clouds":
+        case "few clouds":
+            return "/icons/partly-cloudy.svg";
+        case "broken clouds":
+        case "overcast clouds":
+            return "/icons/cloudy.svg";
         default:
             return "/icons/sunny.svg";
     }
 };
-
 interface Weather {
-    coordinates: { lon: number; lat: number };
-    weather: { id: number; main: string; description: string; icon: string }[];
-    base: string;
-    main: {
-        temp: number;
-        feels_like: number;
-        temp_min: number;
-        temp_max: number;
-
-    };
-
-    sys: {
-        type: number;
-        id: number;
+    list: Array<{
+        dt: number;
+        main: {
+            temp: number;
+            feels_like: number;
+            temp_min: number;
+            temp_max: number;
+        };
+        weather: Array<{
+            id: number;
+            main: string;
+            description: string;
+            icon: string;
+        }>;
+    }>;
+    city: {
+        name: string;
         country: string;
-        sunrise: number;
-        sunset: number;
     };
-    timezone: number;
-    id: number;
-    name: string;
-    cod: number;
 }
 
 export const useWeather = () => {
