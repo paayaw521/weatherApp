@@ -13,7 +13,7 @@ interface DailyForecastData {
 export const DailyForecast: React.FC<{ dailyData: Array<{day: string; highTemp: number; lowTemp: number; icon: ImageProps}> }> = ({dailyData}) => {
     return (
         <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-semibold mb-4 text-black font-['Instrument_Serif'] text-center">Daily Forecast</h2>
+            <h2 className="font-semibold mb-4 text-black font-['Instrument_Serif'] text-5xl text-center">Daily Forecast</h2>
             <div className="bg-[#93DAD4] rounded-xl p-8 w-full">
 
                 <div className="flex flex-col divide-y divide-black">

@@ -10,16 +10,16 @@ interface Props {
 export const CurrentWeatherCard: React.FC<Props> = ({ temperature, icon, city }) => {
     return (
 
-            <div className="flex flex-col items-center">
-                <h2 className="font-['Instrument_Serif'] text-4xl text-black mb-4">{city}</h2>
+            <div className="flex flex-col items-center content-center">
+                <h2 className="font-['Instrument_Serif'] text-6xl text-black mb-4">{city}</h2>
                 <Image
                     src={icon.src}
                     alt={icon.alt || 'Current Weather Icon'}
                     width={icon.width || 500}
                     height={icon.height || 500}
-                    className="w-40 h-40 mb-4"
+                    className="w-35 h-35 mb-4"
                 />
-                <p className="font-['Instrument_Serif'] text-6xl text-black">
+                <p className="font-['Instrument_Serif'] text-9xl text-black">
                     {temperature}°
                 </p>
             </div>

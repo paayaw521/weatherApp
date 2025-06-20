@@ -34,6 +34,7 @@ export default function RootLayout({
       <body
           className={`${instrumentSerif.variable} antialiased bg-[#3D7D78] min-h-screen`}
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+
       >
         {children}
       </body>
