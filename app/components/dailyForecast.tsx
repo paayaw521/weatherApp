@@ -7,7 +7,7 @@ interface DailyForecastData {
     day: string;
     highTemp: number;
     lowTemp: number;
-    icon: ImageProps; // Assuming icon is an ImageProps type
+    icon: ImageProps;
 }
 
 export const DailyForecast: React.FC<{ dailyData: Array<{day: string; highTemp: number; lowTemp: number; icon: ImageProps}> }> = ({dailyData}) => {

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-// Change the base_api to use the forecast endpoint
+
 const base_api = "https://api.openweathermap.org/data/2.5/forecast?q=accra&appid=8d65b434e0cdc0da95db65116d086dc0&units=metric";
 
 export const getWeatherIcon = (weatherMain: string) => {
